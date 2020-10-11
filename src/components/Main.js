@@ -19,7 +19,7 @@ const Main = () => {
 
     useEffect(() => {
         fetchList();
-    });
+    }, [city]);
 
     async function fetchList() {
         try {
@@ -31,6 +31,8 @@ const Main = () => {
             }
             const { list } = await response.json();
             const today = new Date().getDay();
+
+            //TODO: Move to service.js
             const weatherToday = list.filter((item, index) => index < 8).map(parseDate);
             const otherDayWeather = list.filter(item => getWeather(item.dt_txt, today)).map(parseDate);
             dispatch(saveInfoAction(weatherToday, otherDayWeather));
@@ -41,12 +43,14 @@ const Main = () => {
         }
     }
 
+    //TODO: Move to service.js
     function getWeather(dt_txt, today) {
         const date = new Date(dt_txt);
 
         return (date.getDay() !== today && date.getHours() === 0) || date.getHours() === 12;
     }
 
+    //TODO: Move to service.js
     function parseDate(weather) {
         return {
             date: weather.dt_txt,
@@ -59,11 +63,15 @@ const Main = () => {
         };
     }
 
-    return loading ? (
-        <Loading />
-    ) : error ? (
-        <Error />
-    ) : (
+    if (error) {
+        return <Error />;
+    }
+
+    if (loading) {
+        return <Loading />;
+    }
+
+    return (
         <div>
             <NowInfo />
             <AverageTemp />
