@@ -1,45 +1,50 @@
-import React, {useEffect, useState} from "react";
-import {default as NowInfo} from "./NowInfo";
-import {connect} from 'react-redux';
-import {saveInfoAction} from "../actions";
-import {default as AverageTemp} from './AverageTemp';
-import {Error} from './Error';
-import {Loading} from "./Loading";
-import '../style.css'
+import React, { useEffect, useState } from "react";
+import { connect, useSelector, useDispatch } from "react-redux";
 
+import NowInfo from "./NowInfo";
+import { saveInfoAction } from "../actions";
+import AverageTemp from "./AverageTemp";
+import { Error } from "./Error";
+import { Loading } from "./Loading";
 
-const Main = ({saveInfo, city}) => {
+import "../style.css";
+
+const Main = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
+    const city = useSelector(state => state.info.city);
+
+    const dispatch = useDispatch();
+
     useEffect(() => {
-            async function fetchList() {
-                try {
-                    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=d903cb4a25e5d26271fbc6adcc4ce845`)
-                    if (!response.ok) {
-                        throw new Error('error');
-                    }
-                    const {list} = await response.json();
-                    const today = new Date().getDay();
-                    const weatherToday = list.filter((item, index) => index < 8).map(parseDate);
-                    const otherDayWeather = list.filter((item) => getWeather(item.dt_txt, today)).map(parseDate);
-                    saveInfo(weatherToday, otherDayWeather);
-                    setLoading(false);
+        fetchList();
+    });
 
-                } catch (e) {
-                    setError(true)
-                    setLoading(false)
-                }
+    async function fetchList() {
+        try {
+            const response = await fetch(
+                `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=d903cb4a25e5d26271fbc6adcc4ce845`
+            );
+            if (!response.ok) {
+                throw new Error("error");
             }
-
-            fetchList();
+            const { list } = await response.json();
+            const today = new Date().getDay();
+            const weatherToday = list.filter((item, index) => index < 8).map(parseDate);
+            const otherDayWeather = list.filter(item => getWeather(item.dt_txt, today)).map(parseDate);
+            dispatch(saveInfoAction(weatherToday, otherDayWeather));
+            setLoading(false);
+        } catch (e) {
+            setError(true);
+            setLoading(false);
         }
-    )
+    }
 
     function getWeather(dt_txt, today) {
         const date = new Date(dt_txt);
 
-        return date.getDay() !== today && date.getHours() === 0 || date.getHours() === 12;
+        return (date.getDay() !== today && date.getHours() === 0) || date.getHours() === 12;
     }
 
     function parseDate(weather) {
@@ -50,32 +55,29 @@ const Main = ({saveInfo, city}) => {
             description: weather.weather[0].description,
             wind: Math.round(weather.wind.speed * 3.6),
             humidity: weather.main.humidity,
-            pressure: weather.main.pressure
-        }
+            pressure: weather.main.pressure,
+        };
     }
 
-    return (
-        loading
-            ? <Loading/>
-            : error
-            ? <Error/>
-            : <div>
-                <NowInfo/>
-                <AverageTemp/>
-            </div>
-    )
-}
+    return loading ? (
+        <Loading />
+    ) : error ? (
+        <Error />
+    ) : (
+        <div>
+            <NowInfo />
+            <AverageTemp />
+        </div>
+    );
+};
 
-const mapStateToProps = (state) => ({
-    city: state.info.city
-})
+export default Main;
+// const mapStateToProps = state => ({
+//     city: state.info.city,
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-    saveInfo: (weatherToday, otherDayWeather) =>
-        dispatch(saveInfoAction(weatherToday, otherDayWeather)),
-});
+// const mapDispatchToProps = dispatch => ({
+//     saveInfo: (weatherToday, otherDayWeather) => dispatch(saveInfoAction(weatherToday, otherDayWeather)),
+// });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Main);
+// export default connect(mapStateToProps, mapDispatchToProps)(Main);
