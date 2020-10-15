@@ -1,0 +1,17 @@
+.temp-by-hour {
+    overflow-x: auto;
+    display: flex;
+    text-align: center;
+    height: 27vh;
+    margin-top: 30px;
+}
+
+.temp-by-hour::-webkit-scrollbar {
+    height: 10px;
+}
+
+.temp-by-hour::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 4px #bdc1b0;
+    background-color: whitesmoke;
+}
+

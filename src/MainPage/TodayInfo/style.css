@@ -1,0 +1,21 @@
+
+.today-section {
+    background-color: #FFC973;
+    margin: 0 10vw 0 10vw;
+    min-width: 500px;
+}
+
+.main-today-info {
+    color: #484848;
+    height: 30vh;
+    display: grid;
+    justify-items: center;
+    grid-template-areas: 'description temp  other-info' 'description temp  other-info';
+}
+
+.main-today-info h3 {
+    color: #484848;
+}
+
+
+

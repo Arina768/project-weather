@@ -1,0 +1,30 @@
+.description-and-icon {
+    grid-area: description;
+    font-size: 25px;
+    text-align: center;
+    width: 180px;
+    height: 180px;
+}
+
+.today-icon {
+    width: 180px;
+    height: 180px;
+}
+
+.other-today-info {
+    grid-area: other-info;
+    color: #716c6c;
+    font-size: 20px;
+}
+
+.other-today-info h3 {
+    color: #716c6c;
+}
+.temp-today {
+    display: block;
+    grid-area: temp;
+    font-size: 25px;
+    justify-self: start;
+    padding-top: 50px;
+
+}
