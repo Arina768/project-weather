@@ -1,4 +1,5 @@
 import { SAVE_INFO, CHANGE_CITY } from "./constance";
+import { getWeatherToday, getOtherDayWeather } from "./service";
 
 export const saveInfoAction = (weatherToday, otherDayWeather) => ({
   type: SAVE_INFO,
@@ -12,3 +13,9 @@ export const changeCityAction = (city) => ({
   type: CHANGE_CITY,
   payload: city
 })
+
+export const parseWeatherData = (list) => (dispatch) => {
+  const weatherToday = getWeatherToday(list);
+  const otherDayWeather = getOtherDayWeather(list);
+  dispatch(saveInfoAction(weatherToday, otherDayWeather));
+}

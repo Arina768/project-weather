@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import InputCity from './InputCity';
+import {InputCity} from './InputCityNew';
 
 import './style.css';
 

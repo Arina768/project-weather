@@ -4,7 +4,7 @@ export function getWeather(dt_txt, today) {
   return date.getDay() !== today && date.getHours() === 0 || date.getHours() === 12;
 }
 
-export function parseDate(weather) {
+export function parseData(weather) {
   return {
     date: weather.dt_txt,
     temp: Math.round(weather.main.temp),
@@ -14,4 +14,13 @@ export function parseDate(weather) {
     humidity: weather.main.humidity,
     pressure: weather.main.pressure,
   };
+}
+
+export function getWeatherToday(list) {
+  return list.filter((item, index) => index < 8).map(parseData)
+}
+
+export function getOtherDayWeather(list) {
+  const today = new Date().getDay();
+  return list.filter((item) => getWeather(item.dt_txt, today)).map(parseData)
 }
