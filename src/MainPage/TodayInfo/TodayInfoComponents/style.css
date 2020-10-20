@@ -1,5 +1,4 @@
 .today-icon {
-    grid-area: icon;
     text-align: center;
     width: 40vh;
     height: 40vh;
@@ -7,14 +6,12 @@
 
 .temp-today {
     display: block;
-    grid-area: temp;
     font-size: 2vw;
     padding-top: 5vh;
     min-width: 220px;
 }
 
 .other-today-info {
-    grid-area: other-info;
     padding-top: 5vh;
     color: #484848;
     font-size: 1.5vw;

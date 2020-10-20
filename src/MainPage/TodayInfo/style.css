@@ -9,9 +9,9 @@
     color: #484848;
     height: 35vh;
     min-height: 100px;
-    display: grid;
+    display: flex;
+    justify-content: space-around;
     justify-items: center;
-    grid-template-areas: 'icon temp temp  other-info other-info' 'icon temp temp  other-info other-info';
 }
 
 .main-today-info h3 {

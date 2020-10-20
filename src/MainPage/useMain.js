@@ -14,7 +14,7 @@ export const useMain = () => {
     async function fetchList() {
       try {
         const response = await fetch(
-          `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=d903cb4a25e5d26271fbc6adcc4ce845`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=d903cb4a25e5d26271fbc6adcc4ce845`
         );
         if (!response.ok) {
           throw new Error('error');
