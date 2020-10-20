@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import {InputCity} from './InputCityNew';
+import { CityInput } from './CityInput/CityInput';
 
 import './style.css';
 
@@ -16,7 +16,7 @@ const Header = () => {
         <h1>Date: {(new Date().getDate())}/{(new Date().getMonth())}/{(new Date().getFullYear())}</h1>
       </div>
       <div className='change-city-input'>
-        <InputCity/>
+        <CityInput />
       </div>
     </>
   )

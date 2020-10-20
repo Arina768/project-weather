@@ -2,28 +2,28 @@ import React from "react";
 import { useSelector } from 'react-redux';
 
 import { EveryHourInfo } from './EveryHourInfo/EveryHourInfo';
-import { DescriptionAndIcon } from './TodayInfoComponents/DescriptionAndIcon';
+import { TodayIcon } from './TodayInfoComponents/TodayIcon';
 import { TodayTemperature } from './TodayInfoComponents/TodayTemperature';
-import { OtherTodayInfo } from './TodayInfoComponents/OtherTodayInfo'
+import { OtherTodayInfo } from './TodayInfoComponents/OtherTodayInfo';
 
-import { useTodayInfo } from './useTodayInfo';
-
+import { getTodayInfo } from './service';
 
 import './style.css'
 
 const TodayInfo = () => {
   const weatherToday = useSelector(state => state.info.weatherToday)
-  const todayInfo = useTodayInfo(weatherToday);
+  const todayInfo = getTodayInfo(weatherToday);
 
   return (
     <section className='today-section'>
       <div className='main-today-info'>
-        <DescriptionAndIcon dayDescription={todayInfo.dayDescription} dayIcon={todayInfo.dayIcon}/>
-        <TodayTemperature dayTemp={todayInfo.dayTemp} nightTemp={todayInfo.nightTemp}/>
+        <TodayIcon dayIcon={todayInfo.dayIcon} />
+        <TodayTemperature dayDescription={todayInfo.dayDescription}
+                          dayTemp={todayInfo.dayTemp} nightTemp={todayInfo.nightTemp} />
         <OtherTodayInfo wind={weatherToday[0].wind} pressure={weatherToday[0].pressure}
-                        humidity={weatherToday[0].humidity}/>
+                        humidity={weatherToday[0].humidity} />
       </div>
-      <EveryHourInfo weatherInfo={weatherToday}/>
+      <EveryHourInfo weatherInfo={weatherToday} />
     </section>
   )
 }

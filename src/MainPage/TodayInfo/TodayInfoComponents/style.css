@@ -1,30 +1,26 @@
-.description-and-icon {
-    grid-area: description;
-    font-size: 25px;
+.today-icon {
+    grid-area: icon;
     text-align: center;
     width: 180px;
     height: 180px;
 }
 
-.today-icon {
-    width: 180px;
-    height: 180px;
-}
-
-.other-today-info {
-    grid-area: other-info;
-    color: #716c6c;
-    font-size: 20px;
-}
-
-.other-today-info h3 {
-    color: #716c6c;
-}
 .temp-today {
     display: block;
     grid-area: temp;
     font-size: 25px;
-    justify-self: start;
-    padding-top: 50px;
+    padding-top: 5vh;
+    min-width: 220px;
+}
 
+.other-today-info {
+    grid-area: other-info;
+    padding-top: 5vh;
+    color: #484848;
+    font-size: 20px;
+    min-width: 220px;
+}
+
+.other-today-info h3 {
+    color: #484848;
 }

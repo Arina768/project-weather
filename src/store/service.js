@@ -17,10 +17,10 @@ export function parseData(weather) {
 }
 
 export function getWeatherToday(list) {
-  return list.filter((item, index) => index < 8).map(parseData)
+  return list.filter((item, index) => index < 8).map(parseData);
 }
 
 export function getOtherDayWeather(list) {
   const today = new Date().getDay();
-  return list.filter((item) => getWeather(item.dt_txt, today)).map(parseData)
+  return list.filter((item) => getWeather(item.dt_txt, today)).map(parseData);
 }

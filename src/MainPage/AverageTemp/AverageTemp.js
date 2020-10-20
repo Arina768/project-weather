@@ -14,7 +14,7 @@ const AverageTemp = () => {
       {otherDaysWeather.map((oneDayWeatherInfo, index) => {
         if (index % 2 === 0) {
           return <OneDayWeather index={index} otherDaysWeather={otherDaysWeather}
-                                oneDayWeatherInfo={oneDayWeatherInfo}/>
+                                oneDayWeatherInfo={oneDayWeatherInfo} />
         }
       })}
     </section>

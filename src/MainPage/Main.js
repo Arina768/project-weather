@@ -6,8 +6,6 @@ import AverageTemp from './AverageTemp/AverageTemp';
 import { Error } from './components/Error';
 import { Loading } from "./components/Loading";
 
-
-
 import '../global.css'
 import { useMain } from "./useMain";
 
@@ -16,18 +14,18 @@ const Main = () => {
   const status = useMain();
 
   if (status.error) {
-    return <Error/>;
+    return <Error />;
   }
 
   if (status.loading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   return (
     <div>
-      <Header/>
-      <TodayInfo/>
-      <AverageTemp/>
+      <Header />
+      <TodayInfo />
+      <AverageTemp />
     </div>
   )
 }

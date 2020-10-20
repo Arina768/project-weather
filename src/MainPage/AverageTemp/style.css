@@ -1,10 +1,10 @@
 .other-days-info {
     display: flex;
     justify-content: space-around;
-    background-color: #6899D3;
+    background-color: #6899d3d6;
     margin: 0 10vw 0 10vw;
     padding-top: 15px;
     text-align: center;
-    height: 34vh;
-    min-width: 500px;
+    height: 35vh;
+    min-width: 650px;
 }

@@ -6,12 +6,12 @@ export const saveInfoAction = (weatherToday, otherDayWeather) => ({
   payload: {
     weatherToday: weatherToday,
     otherDayWeather: otherDayWeather,
-  }
+  },
 })
 
 export const changeCityAction = (city) => ({
   type: CHANGE_CITY,
-  payload: city
+  payload: city,
 })
 
 export const parseWeatherData = (list) => (dispatch) => {

@@ -20,16 +20,15 @@ export const useMain = () => {
           throw new Error('error');
         }
         const { list } = await response.json();
-        dispatch(parseWeatherData(list))
+        dispatch(parseWeatherData(list));
         setLoading(false);
 
       } catch (e) {
-        setError(true)
-        setLoading(false)
+        setError(true);
+        setLoading(false);
       }
     }
-
     fetchList();
   }, [city]);
-  return {error, loading}
+  return { error, loading };
 }

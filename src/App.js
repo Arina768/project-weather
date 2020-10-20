@@ -5,6 +5,6 @@ import { store } from './store/store';
 
 export const App = () => (
   <Provider store={store}>
-    <Main/>
+    <Main />
   </Provider>
 );

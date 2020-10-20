@@ -1,0 +1,31 @@
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -125px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.loading h1 {
+    color: white;
+}
+
+.error {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin: -125px 0 0 -125px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.error-icon {
+    width: 200px;
+    height: 200px;
+}
+
+.error h1 {
+    color: white;
+    text-shadow: -1px 0 #282828, 0 1px #282828, 1px 0 #282828, 0 -1px #282828;
+}
