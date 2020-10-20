@@ -1,11 +1,19 @@
 import React from "react";
 
 export function getDayTemp(weatherInfo, index) {
-  return weatherInfo[index].temp;
+  if (weatherInfo[index]) {
+    return weatherInfo[index].temp;
+  } else {
+    return weatherInfo[index - 1].temp;
+  }
 }
 
 export function getDayIcon(weatherInfo, index) {
-  return weatherInfo[index].icon;
+  if (weatherInfo[index]) {
+    return weatherInfo[index].icon;
+  } else {
+    return weatherInfo[index - 1].icon;
+  }
 }
 
 export function getDate(oneDayWeatherInfo) {
