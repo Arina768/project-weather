@@ -5,6 +5,7 @@
     margin: 0 10vw 0 10vw;
     padding-top: 15px;
     text-align: center;
-    height: 35vh;
+    height: 39vh;
     min-width: 650px;
+    max-height: 250px;
 }
