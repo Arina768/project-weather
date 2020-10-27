@@ -1,11 +1,8 @@
 import React from "react";
+import { DAYS } from '../constants';
 
 export function getDayTemp(weatherInfo, index) {
-  if (weatherInfo[index]) {
-    return weatherInfo[index].temp;
-  } else {
-    return weatherInfo[index - 1].temp;
-  }
+  return weatherInfo[index].temp;
 }
 
 export function getDayIcon(weatherInfo, index) {
@@ -26,6 +23,5 @@ export function getDate(oneDayWeatherInfo) {
 }
 
 export function getWeekday(oneDayWeatherInfo) {
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  return days[new Date(oneDayWeatherInfo.date).getDay()];
+  return DAYS[new Date(oneDayWeatherInfo.date).getDay()];
 }

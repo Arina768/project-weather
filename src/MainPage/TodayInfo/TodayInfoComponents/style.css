@@ -6,7 +6,7 @@
 
 .temp-today {
     display: block;
-    font-size: 2vw;
+    font-size: 1.5em;
     padding-top: 5vh;
     min-width: 220px;
 }
@@ -14,7 +14,7 @@
 .other-today-info {
     padding-top: 5vh;
     color: #484848;
-    font-size: 1.5vw;
+    font-size: 1.5em;
     min-width: 220px;
 }
 

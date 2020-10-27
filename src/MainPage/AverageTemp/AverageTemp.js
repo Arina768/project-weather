@@ -11,7 +11,7 @@ const AverageTemp = () => {
   return (
     <section className='other-days-info'>
       {otherDaysWeather.map((oneDayWeatherInfo, index) => {
-        if (index % 2 === 0) {
+        if ((new Date(oneDayWeatherInfo.date).getHours()) === 0) {
           return <OneDayWeather index={index} otherDaysWeather={otherDaysWeather}
                                 oneDayWeatherInfo={oneDayWeatherInfo} />
         }

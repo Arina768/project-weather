@@ -1,5 +1,5 @@
-import { SAVE_INFO, CHANGE_CITY } from "./constance";
-import { getWeatherToday, getOtherDayWeather } from "./service";
+import { SAVE_INFO, CHANGE_CITY } from "../MainPage/constants";
+import { getWeatherToday, getOtherDayWeather } from "../service";
 
 export const saveInfoAction = (weatherToday, otherDayWeather) => ({
   type: SAVE_INFO,

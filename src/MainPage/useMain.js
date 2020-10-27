@@ -28,6 +28,7 @@ export const useMain = () => {
         setLoading(false);
       }
     }
+
     fetchList();
   }, [city]);
   return { error, loading };

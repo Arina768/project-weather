@@ -7,7 +7,7 @@
     min-height: 100px;
     padding-bottom: 10px;
     margin-top: 20px;
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 .temp-by-hour::-webkit-scrollbar {

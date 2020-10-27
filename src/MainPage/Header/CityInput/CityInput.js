@@ -24,11 +24,13 @@ export const CityInput = () => {
     );
   };
 
-  const handleSelect = (data) => {
-    if (!options[0].value) {
+  const handleSelect = () => {
+    const value = options[0].value;
+    if (!value || value === 'Vilniaus Apskritis') {
       setError('Sorry, this city does not exist in our database')
     } else {
-      dispatch(changeCityAction(data))
+      localStorage.setItem('city', value)
+      dispatch(changeCityAction(value))
       setError('')
     }
     setOptions([])

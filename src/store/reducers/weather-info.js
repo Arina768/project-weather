@@ -1,9 +1,9 @@
-import { SAVE_INFO, CHANGE_CITY } from "../constance";
+import { SAVE_INFO, CHANGE_CITY } from "../../MainPage/constants";
 
 const defaultState = {
   weatherToday: [],
   otherDayWeather: [],
-  city: 'Minsk',
+  city: localStorage.getItem('city') || 'Minsk',
 }
 
 export const infoReducer = (state = defaultState, action) => {
