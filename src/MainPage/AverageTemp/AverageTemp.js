@@ -7,7 +7,7 @@ import './style.css'
 
 
 const AverageTemp = () => {
-  const otherDaysWeather = useSelector(state => state.info.otherDayWeather)
+  const otherDaysWeather = useSelector(state => state.info.otherDayWeather);
   return (
     <section className='other-days-info'>
       {otherDaysWeather.map((oneDayWeatherInfo, index) => {
